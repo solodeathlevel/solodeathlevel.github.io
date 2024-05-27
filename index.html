@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PORTFOLIO</title>
+  <script src="https://kit.fontawesome.com/41445d7a7b.js" crossorigin="anonymous"></script>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      font-family: verdana;
+      box-sizing: border-box;
+    }
+
+    html{
+      scroll-behavior: smooth;
+    }
+
+    body{
+      background: #080808;
+      color: #fff;
+
+    }
+    #header{
+      width: 100%;
+      height: 100vh;
+      background-image: url(mm.png);
+      background-size: cover;
+      background-position: center;
+    }
+
+
+    .container{
+      padding: 10px 10%;
+    }
+
+    nav{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo{
+      width: 140px;
+      margin-top: 10px;
+    }
+
+    nav ul li{
+      display: inline-block;
+      list-style: none;
+      margin: 10px 20px;
+    }
+
+    nav ul li a{
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+    }
+    nav ul li a::after{
+      content: '';
+      width: 0;
+      height: 3px;
+      background: #f9c70c;
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      transition: 0.5s;
+    }
+
+    nav ul li a:hover::after{
+      width: 100%;
+    }
+
+    .header-text{
+      margin-top: 20%;
+      font-size: 30px;
+    }
+
+    .header-text h1{
+      font-size: 45px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-family: verdana;
+    }
+
+    .header-text h1 span{
+      color:#f9c70c;
+    }
+
+    .header-text p span{
+      color:#f9c70c;
+    }
+
+    #about{
+      padding:80px 0;
+      color: #ababab;
+    }
+
+    .row{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .about-col-1{
+      flex-basis: 35%;
+    }
+
+    .about-col-1 img{
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .about-col-2{
+      flex-basis: 60%;
+    }
+
+    .sub-title{
+      font-size: 60px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .tab-titles{
+      display: flex;
+      margin: 20px 0 40px;
+    }
+
+    .tab-links{
+      margin-right: 50px;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .tab-links::after{
+
+      content: '';
+      width: 0;
+      height: 3px;
+      background: #f9c70c;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      transition: 0.5s;
+    }
+
+    .tab-links.active-link::after{
+      width: 50%;
+    }
+
+    .tab-contents ul li{
+      list-style: none;
+      margin: 10px 0;
+    }
+
+    .tab-contents ul li span{
+      color: #fad13c;
+      font-size: 14px;
+    }
+
+    .tab-contents{
+      display: none;
+    }
+
+    .tab-contents.active-tab{
+      display: block;
+    }
+
+    #services{
+      padding: 30px 0;
+    }
+
+    .services-list{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: 50px;
+    }
+    .services-list div{
+      background: #262626;
+      padding: 40px;
+      font-size: 13px;
+      font-weight: 300;
+      border-radius: 10px;
+      transition: background 0.5s, transform 0.5s;
+    }
+
+    .services-list div i{
+      font-size: 50px;
+      margin-bottom: 30px;
+    }
+
+    .services-list div h2{
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .services-list div a{
+      text-decoration: none;
+      color: #080808;
+      font-size: 12px;
+      margin-top: 20px;
+      display:inline-block;
+    }
+
+    .services-list div:hover{
+      background: #f9c70c;
+      transform: translateY(-10px);
+      color:#080808;
+    }
+
+    #portfolio{
+      padding: 50px 0;
+    }
+
+    .work-list{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: 50px;
+    }
+
+    .work{
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .work img{
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .layer{
+      width: 100%;
+      height: 0;
+      background: linear-gradient(rgba(0,0,0,0.6), #f9c70c);
+      border-radius: 10px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 40px;
+      text-align: center;
+      font-size: 14px;
+      transition: height 0.5s;
+    }
+
+    .layer h3{
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .layer a{
+      margin-top: 20px;
+      color:#f9c70c;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 60px;
+      background: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    .work:hover img{
+      transform: scale(1.1);
+    }
+
+    .work:hover .layer{
+      height: 100%;
+    }
+
+    .btn{
+      display: block;
+      margin: 50px auto;
+      width: fit-content;
+      border: 1px solid #f9c70c;
+      padding: 14px 50px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #fff;
+      transition: background 0.5s;
+    }
+
+    .btn:hover{
+      background: #f9c70c;
+      color:#080808;
+    }
+
+    .contact-left{
+      flex-basis: 35%;
+    }
+
+    .contact-right{
+      flex-basis: 60%;
+    }
+
+    .contact-left p{
+      margin-top: 30px;
+    }
+
+    .contact-left p i{
+      color:#f9c70c;
+      margin-right: 15px;
+      font-size: 25px;
+    }
+
+    .social-icons{
+      margin-top: 30px;
+    }
+
+    .social-icons a{
+      text-decoration: none;
+      font-size: 30px;
+      margin-right: 15px;
+      color: #ababab;
+      display: inline-block;
+      transition: 0.5s;
+    }
+
+    .social-icons a:hover{
+      color:#f9c70c;
+      transform: translateY(-5px);
+    }
+
+    .btn.btn2{
+      display: inline-block;
+      background: #f9c70c;
+    }
+
+
+    .contact-right form{
+      width: 100%;
+    }
+
+    form input, form textarea{
+      width: 100%;
+      border: 0;
+      outline: none;
+      background: #262626;
+      padding: 15px;
+      margin: 15px 0;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 6px;
+    }
+
+    form .btn2{
+      padding: 14px 60px;
+      font-size: 18px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    nav .fa-solid{
+      display: none;
+    }
+
+    @media only screen and (max-width: 600px){
+      #header{
+        background-image: url(phone.png);
+      }
+
+      .header-text{
+        margin-top: 100%;
+        font-size: 16px;
+      }
+
+      .header-text h1{
+        font-size: 30px;
+      }
+
+      nav .fa-solid{
+      display: block;
+      font-size: 25px;
+    }
+
+    nav ul{
+      background: #f9c70c;
+      position: fixed;
+      top: 0;
+      right: -200px;
+      width: 200px;
+      height: 100vh;
+      padding-top: 50px;
+      z-index: 2;
+      transition: right 0.5s;
+      color:#080808;
+    }
+
+    nav ul li{
+      display: block;
+      margin: 25px;
+    }
+
+    nav ul li a{
+
+      color: black;
+    }
+
+
+    nav ul .fa-solid{
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      cursor: pointer;
+    }
+
+    .sub-title{
+      font-size: 40px;
+    }
+
+    .about-col-1, .about-col-2{
+      flex-basis: 100%;
+    }
+
+    .about-col-1{
+      margin-bottom: 30px;
+    }
+
+    .about-col-2{
+      font-size: 14px;
+    }
+
+    .tab-links{
+      font-size: 16px;
+      margin-right: 20px;
+    }
+
+    .contact-left, .contact-right{
+      flex-basis: 100%;
+    }
+
+
+    }
+
+    #msg{
+      color: #61b752;
+      margin-top: -40px;
+      display: block;
+    }
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div class="container">
+      <nav>
+        <img src="Add a heading.png" class="logo">
+        <ul id="sidemenu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+        </ul>
+        <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+      </nav>
+      <div class="header-text">
+        <p>UI/UX Designer</p>
+        <h1>Hi, I'm <span>Jaydan luke Masayon</span></h1>
+        <p>Bachelor of Science in <span>Information Technology</span></p>
+      </div>
+
+    </div>
+
+  </div>
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="about-col-1">
+        <img src="shesh.jpg">
+      </div>
+      <div class="about-col-2">
+        <h1 class="sub-title">About Me</h1>
+        <p>I am an IT student with a passion for technology an a solid foundation in various IT skills gained during my academic pursuits, I am eager to contribute my knowledge and dedication to a dynamic organization where I can learn, grow, and make a positive impact.</p>
+        <div class="tab-titles">
+          <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+          <p class="tab-links" onclick="opentab('experience')">Experience</p>
+          <p class="tab-links" onclick="opentab('education')">Education</p>
+
+        </div>
+        <div class="tab-contents active-tab" id="skills">
+          <ul>
+            <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+            <li><span>Web Development</span><br>Web app Development</li>
+            <li><span>App Development</span><br>Building Android/iOS</li>
+          </ul>
+        </div>
+        <div class="tab-contents" id="experience">
+          <ul>
+            <li><span>2023 - Current</span><br>UI/UX Design Training at ET Institute</li>
+            <li><span>2022 - 2023</span><br>Team lead at StarApp LLC.</li>
+            <li><span>2021 - 2022</span><br>UI/UX Designer at GO Corporation.</li>
+            <li><span>2020 - 2021</span><br>Junior UI/UX Designer at XIU Company.</li>
+
+
+          </ul>
+        </div>
+        <div class="tab-contents" id="education">
+          <ul>
+            <li><span>2023 - Present</span><br>North Eastern Mindanao State University</li>
+            <li><span>2016 - 2022</span><br>Florita Herrera Irizari National High School.</li>
+            <li><span>2010 - 2016</span><br>Lanuza Central Elementary School</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="services">
+  <div class="container">
+    <h1 class="sub-title">My Services</h1>
+    <div class="services-list">
+      <div>
+        <i class="fa-solid fa-code"></i>
+        <h2>Web Design</h2>
+        <p>Crafting visually stunning and functional websites tailored to your needs. From sleek corporate pages to dynamic e-commerce platforms, I specialize in creating websites that not only look great but also drive engagement and conversions. With a focus on user experience and responsive design, your website will deliver an exceptional experience across all devices.</p>
+        <a href="#">Learn more</a>
+      </div>
+      <div>
+        <i class="fa-solid fa-crop"></i>
+        <h2>UI/UX Design</h2>
+        <p>Designing intuitive and user-friendly interfaces for web and mobile applications. By combining creativity with user research and testing, I create designs that not only look appealing but also provide seamless navigation and interaction. Whether it's simplifying complex workflows or enhancing visual aesthetics, I ensure that every design decision is rooted in enhancing the user experience.</p>
+        <a href="#">Learn more</a>
+      </div>
+      <div>
+        <i class="fa-brands fa-app-store"></i>
+        <h2>App Design</h2>
+        <p>Developing captivating designs for mobile applications that engage and delight users. From conceptualization to final polish, I work closely with clients to bring their app ideas to life. By focusing on user personas, wireframing, and prototyping, I ensure that every screen and interaction is thoughtfully crafted to meet the needs of the target audience. With an eye for detail and a passion for innovation, your app will stand out in the crowded digital landscape.</p>
+        <a href="#">Learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="portfolio">
+  <div class="container">
+    <h1 class="sub-title">My Work</h1>
+    <div class="work-list">
+      <div class="work">
+        <img src="work-1.png">
+        <div class="layer">
+          <h3>Social Media App</h3>
+          <p>Connect with global talent. Inspire and collaborate. Download from the Play Store.</p>
+          <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="work-2.png">
+        <div class="layer">
+          <h3>Music App</h3>
+          <p>Explore a world of music genres, connect with fellow enthusiasts, and share your favorites. Download now from the Play Store.</p>
+          <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+      <div class="work">
+        <img src="work-3.png">
+        <div class="layer">
+          <h3>Online Shopping App</h3>
+          <p>Shop thousands of products with ease. Secure payments. Fast delivery. Download now from the Play Store.</p>
+          <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="btn">See more</a>
+  </div>
+</div>
+
+<div id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="contact-left">
+        <h1 class="sub-title">Contact Me</h1>
+        <p> <i class="fa-regular fa-paper-plane"></i>jaydanluke9@gmail.com</p>
+        <p> <i class="fa-solid fa-phone"></i>09505057487</p>
+        <div class="social-icons">
+          <a href="https://facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+          <a href=""><i class="fa-brands fa-twitter-square"></i></a>
+          <a href=""><i class="fa-brands fa-instagram"></i></a>
+          <a href=""><i class="fa-brands fa-linkedin"></i></a>
+
+        </div>
+        <a href="my-cv.pdf" download class="btn btn2">Download CV</a>
+      </div>
+      <div class="contact-right">
+        <form name="submit-to-google-sheet">
+          <input type="text" name="Name" placeholder="Your Name" required>
+          <input type="email" name="Email" placeholder="Your Email" required>
+          <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+          <button type="submit" class="btn btn2">Submit</button>
+        </form>
+        <span id="msg"></span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+
+  var tablinks = document.getElementsByClassName("tab-links");
+  var tabcontents = document.getElementsByClassName("tab-contents");
+
+  function opentab(tabname){
+    for(tablink of tablinks) {
+      tablink.classList.remove("active-link");
+    }
+
+    for(tabcontent of tabcontents) {
+      tabcontent.classList.remove("active-tab");
+    }
+
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+  }
+
+</script>
+
+<script>
+
+  var sidemeu = document.getElementById("sidemenu");
+
+  function openmenu(){
+    sidemeu.style.right = "0";
+  }
+
+  function closemenu(){
+    sidemeu.style.right = "-200px";
+  }
+
+</script>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxa5F1Zzs3TzRbmK5ufdaKQsxLq0HE-6Ydz9ATPwtE2_gFr0e77MEbgfOZuGJPQs-ZO/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message sent successfully"
+        setTimeout(function(){
+          msg.innerHTML = ""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+
+
+
+</body>
+</html>
